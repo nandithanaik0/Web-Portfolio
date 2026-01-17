@@ -1,0 +1,375 @@
+// Projects data
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  technologies: string[];
+  features: string[];
+  image: string;
+  demoUrl?: string;
+  githubUrl?: string;
+  category: "mobile" | "web" | "blockchain" | "ai";
+  featured?: boolean;
+}
+
+export const projects: Project[] = [
+  {
+    //1. Depth Video Diffusion for Robot Policy Learning
+    id: "depth-video-diffusion",
+    title: "Depth Video Diffusion for Robot Policy Learning",
+    description:
+    "Built an efficient conditional diffusion system to generate depth video sequences for robotic manipulation using language and RGB-D inputs.",
+    longDescription:
+    "Designed and implemented a lightweight depth video diffusion pipeline for robot policy learning. The system generates short, temporally consistent depth video sequences conditioned on a natural language instruction and an initial RGB-D observation. A custom 3D U-Net backbone with spatial and temporal attention predicts diffusion noise, while a multi-modal conditioning encoder fuses text and visual features and injects them via FiLM modulation across the network. The model was trained end-to-end using a DDPM objective with multi-GPU acceleration. Experimental evaluation shows strong temporal coherence and realistic motion patterns in generated depth videos, while achieving significantly faster inference compared to RGB video diffusion models. Quantitative evaluation using Frechet Video Distance (FVD) confirms that generated samples closely match the real data distribution, demonstrating an efficient and scalable alternative for learning robot-relevant motion representations.",
+    technologies: [
+        "Python",
+        "PyTorch",
+        "Diffusion Models (DDPM)",
+        "3D U-Net",
+        "FiLM Conditioning",
+        "Temporal & Spatial Attention",
+        "Sentence-BERT / BERT",
+        "RGB-D Perception",
+        "Multi-GPU Training",
+        "Frechet Video Distance (FVD)"
+      ],
+      features: [
+        "Designed a custom lightweight 3D U-Net for depth video diffusion",
+        "Implemented multi-modal conditioning with language instructions and RGB-D visual inputs",
+        "Integrated FiLM-based conditioning to modulate all convolutional blocks",
+        "Added spatial and temporal attention to capture long-range motion dynamics",
+        "Built a scalable DDPM training and inference pipeline with multi-GPU support",
+        "Evaluated generative quality using Frechet Video Distance (FVD)",
+        "Achieved ~25× faster inference compared to RGB video diffusion models"
+      ],
+    
+    image: "/images/projects/video_diffusion.png",
+    githubUrl: "https://github.com/NirshalChandraSekar/video_diffusion",
+    category: "ai",
+    featured: true,
+  },
+  {
+    // 2. Visuomotor Diffusion Policy for Table-Cleaning Manipulation
+    id: "visuomotor-diffusion-policy",
+  title: "Visuomotor Diffusion Policy for Table-Cleaning Manipulation",
+  description:
+    "End-to-end diffusion-based visuomotor policy for single-arm robotic manipulation, deployed and validated on a physical UR5 robot.",
+  longDescription:
+    "Developed an end-to-end visuomotor diffusion policy for table-cleaning manipulation that generates continuous single-arm trajectories conditioned on the current visual scene and robot joint state. The system integrates synchronized RGB-D perception and proprioceptive sensing to model multi-modal action distributions using a diffusion-based policy. Built the complete pipeline from data collection to deployment, including synchronized sensor logging, dataset preparation, model training, and ROS-based system integration. The policy was trained on 245 expert demonstrations and deployed on a physical UR5 robot, achieving reliable closed-loop control and improved robustness compared to CNN/LSTM behavior-cloning baselines.",
+  technologies: [
+    "Python",
+    "PyTorch",
+    "Diffusion Policies",
+    "Visuomotor Learning",
+    "RGB-D Perception",
+    "RealSense L515",
+    "RealSense D405",
+    "UR5 Robot",
+    "ROS",
+    "Closed-Loop Control"
+  ],
+  features: [
+    "Designed a diffusion-based policy for continuous single-arm trajectory generation",
+    "Conditioned action generation on RGB-D visual input and current joint pose",
+    "Implemented synchronized data collection for vision and proprioception",
+    "Built a full training and evaluation pipeline from expert demonstrations",
+    "Collected 245 real-world demonstrations for policy learning",
+    "Deployed and validated closed-loop inference on a physical UR5 robot",
+    "Achieved 66% task success, outperforming CNN/LSTM behavior-cloning baselines"
+  ],
+    image: "/images/projects/ur5_manipulation.png",
+    demoUrl: "https://planet-bronze-016.notion.site/Visuomotor-Diffusion-Policy-for-Table-Cleaning-Manipulation-2e6771d2ea9080eda22bdf7a4aa659c2",
+    githubUrl: "https://github.com/nandithanaik0/Visuomotor-Diffusion-Policy-for-Table-Cleaning-Manipulation",
+    category: "web",
+    featured: true,
+  },
+
+  {
+    //3. Diffusion Posterior Sampling & Conditional Generation
+    id: "diffusion-posterior-sampling",
+    title: "Diffusion Posterior Sampling & Conditional Generation",
+    description:
+      "Implemented and evaluated diffusion-based posterior sampling and guidance methods for inverse problems and conditional image generation.",
+    longDescription:
+      "This project explores posterior sampling and conditioning mechanisms in diffusion models through hands-on implementation and evaluation. Built multiple diffusion-based restoration pipelines, including ILVR, Manifold Constrained Gradient (MCG), DDNM, and Diffusion Posterior Sampling (DPS), to solve inverse problems such as super-resolution and image inpainting. Conducted extensive quantitative evaluation using PSNR, SSIM, and LPIPS, and analyzed robustness under noisy measurements and runtime constraints. Additionally, implemented classifier guidance and classifier-free guidance for class-conditional generation, and evaluated text-to-image alignment using CLIP similarity, highlighting practical trade-offs between fidelity, diversity, and computational efficiency.",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "Diffusion Models (DDPM, DDIM)",
+      "Posterior Sampling",
+      "ILVR / MCG / DDNM / DPS",
+      "Stable Diffusion",
+      "CLIP",
+      "PSNR / SSIM / LPIPS"
+    ],
+    features: [
+      "Implemented diffusion posterior samplers for super-resolution and inpainting",
+      "Compared multiple sampling strategies under noise and runtime constraints",
+      "Analyzed fidelity–efficiency trade-offs in diffusion-based restoration",
+      "Built classifier-guided and classifier-free guided diffusion pipelines",
+      "Evaluated text–image alignment using CLIP similarity metrics"
+    ],
+
+    image: "/images/projects/conditional.png",
+    demoUrl: "https://planet-bronze-016.notion.site/Diffusion-Posterior-Sampling-Conditional-Generation-2e5771d2ea9080008c51f8739c4ab994",
+    githubUrl: "https://github.com/nandithanaik0/Conditional-Generation-for-Inverse-Problems-and-Class-Text-Based",
+    category: "web",
+    featured: true,
+  },
+
+  //4. Diffusion & Flow-Based Generative Models
+  {
+    id: "diffusion-and-flow-models",
+  title: "Diffusion & Flow-Based Generative Models",
+  description:
+    "Implemented diffusion, score-based, and flow-matching generative models with a focus on sampling efficiency and theoretical equivalence.",
+  longDescription:
+    "This project explores modern generative modeling techniques through hands-on implementation of diffusion, score-based, and flow-based methods. Implemented DDPM and DDIM samplers from scratch and analyzed the effect of noise schedules, stochasticity parameters, and reduced denoising steps on sample quality and inference speed. Extended diffusion models to continuous-time formulations using score-based SDEs and probability-flow ODEs, demonstrating the equivalence between stochastic and deterministic generation. Additionally, implemented Conditional Flow Matching (CFM) to learn deterministic generative flows, achieving stable training and diverse sample generation. The project emphasizes efficiency, correctness, and a deep understanding of generative dynamics rather than model scale.",
+  technologies: [
+    "Python",
+    "PyTorch",
+    "Diffusion Models (DDPM, DDIM)",
+    "Score-Based Models",
+    "SDEs / Probability-Flow ODEs",
+    "Conditional Flow Matching",
+    "Generative Modeling"
+  ],
+  features: [
+    "Implemented diffusion samplers and denoising pipelines from scratch",
+    "Analyzed sampling speed vs. quality trade-offs using reduced-step schedules",
+    "Built score-based SDE and probability-flow ODE formulations",
+    "Implemented deterministic Conditional Flow Matching for generative modeling",
+    "Validated theoretical equivalences through empirical experiments"
+  ],
+    image:"/images/projects/foundation_diffusion.png",
+    demoUrl: "https://planet-bronze-016.notion.site/Unconditional-Generation-via-Diffusion-Score-Based-Models-and-Conditional-Flow-Matching-2ad771d2ea90800d9d52ecc43ca2af3b",
+    githubUrl: "https://github.com/nandithanaik0/Diffusion-Score-Based-Model",
+    category: "ai",
+    featured: true,
+  },
+
+  //5. Foundations of Deep Generative Models
+  {
+    id: "generative-models-foundations",
+  title: "Foundations of Deep Generative Models",
+  description:
+    "From-scratch implementations of GANs, VAEs, and autoregressive models to study probabilistic design trade-offs.",
+  longDescription:
+    "This project explores foundational deep generative models through clean, from-scratch implementations of GANs, VAEs, and autoregressive PixelCNNs. Each model was built to highlight its underlying probabilistic formulation and optimization behavior. Through systematic ablations and hyperparameter tuning, the project compares sample quality, training stability, likelihood modeling, and latent representation structure across model families. The work emphasizes understanding design trade-offs—implicit vs. explicit density estimation, adversarial training vs. likelihood-based objectives, and latent-space regularization—providing a strong conceptual foundation for modern diffusion and flow-based models.",
+  technologies: [
+    "Python",
+    "PyTorch",
+    "GANs",
+    "Variational Autoencoders",
+    "PixelCNN",
+    "Autoregressive Models",
+    "Probabilistic Modeling"
+  ],
+  features: [
+    "Implemented GAN, VAE, and PixelCNN models from scratch",
+    "Analyzed training stability and convergence dynamics",
+    "Studied likelihood vs. adversarial generative objectives",
+    "Visualized and evaluated latent representations",
+    "Performed controlled ablations and hyperparameter tuning"
+  ],
+    image:"/images/projects/foundation_genai.png",
+    demoUrl: "https://planet-bronze-016.notion.site/gan-ar-vae?pvs=74",
+    githubUrl: "https://github.com/nandithanaik0/GAN_AR_VAE",
+    category: "ai",
+    featured: false,
+  },
+  
+  //6. Real-Time Car Pose & Velocity Estimation with Monocular 3D Perception
+  {
+    id: "car-pose-velocity-estimation",
+  title: "Real-Time Car Pose & Velocity Estimation with Monocular 3D Perception",
+  description:
+    "Real-time monocular 3D perception pipeline for vehicle pose and velocity estimation using classical geometry and deep learning.",
+  longDescription:
+    "Developed a real-time monocular 3D perception system for estimating vehicle pose and velocity from RGB video. The pipeline combines an offline reconstruction stage using COLMAP for camera intrinsics and sparse 3D structure with an online perception stack that performs vehicle detection, feature extraction and matching, and optical-flow tracking. A custom YOLOv11 detector was trained on a manually annotated vehicle dataset labeled using CVAT to ensure robust detection under real-world conditions. The system establishes reliable 2D–3D correspondences for PnP-based 6-DoF pose estimation and computes vehicle velocity from frame-to-frame pose updates. The final system achieves low pose error while running at real-time speeds through keyframe selection and feature reuse.",
+  technologies: [
+    "Python",
+    "C++",
+    "OpenCV",
+    "COLMAP",
+    "YOLOv11",
+    "SIFT",
+    "Optical Flow",
+    "PnP",
+    "3D Geometry",
+    "CVAT"
+  ],
+  features: [
+    "Hybrid offline–online monocular 3D perception pipeline",
+    "Custom vehicle dataset creation and annotation using CVAT",
+    "YOLOv11-based vehicle detection trained on domain-specific data",
+    "Feature extraction and matching for 2D–3D correspondence",
+    "Real-time 6-DoF pose estimation using PnP",
+    "Velocity estimation from temporal pose updates",
+    "Optimized real-time performance via keyframe selection and feature reuse"
+  ],
+    image:"/images/projects/car.png",
+    demoUrl: "https://docs.google.com/presentation/d/1On6wqCvCiBKp7o95gc-jBRd0rhd0ImmOjePGPIcwFhE/edit?slide=id.p#slide=id.p",
+    category: "ai",
+    featured: true
+  },
+
+   //7. Real-Time Car Pose & Velocity Estimation with Monocular 3D Perception
+  {
+    id: "kde-object-tracking",
+    title: "Object Tracking using Kernel Density Estimation (KDE)",
+    description:
+      "Real-time object tracking system using adaptive kernel density estimation for robust foreground–background separation in video streams.",
+    longDescription:
+      "Designed and implemented a KDE-based background modeling and object tracking pipeline for video sequences, estimating pixel-level intensity distributions over time to separate foreground motion from background noise. Developed a dynamic kernel bandwidth adaptation strategy that leverages temporal motion consistency and local spatial neighborhood statistics, allowing the model to automatically adjust sensitivity across different regions of the scene. The adaptive approach significantly improves robustness under illumination changes, background motion, and sensor noise, while maintaining consistent foreground detection. The system is optimized using NumPy and OpenCV to achieve real-time performance suitable for streaming video applications.",
+    technologies: [
+      "Python",
+      "NumPy",
+      "OpenCV",
+      "Kernel Density Estimation",
+      "Statistical Modeling",
+      "Computer Vision",
+      "Real-Time Video Processing"
+    ],
+    features: [
+      "Implemented pixel-wise KDE-based background modeling for motion detection",
+      "Designed adaptive kernel bandwidth selection using temporal and spatial statistics",
+      "Reduced false-positive detections by approximately 30–40% compared to fixed-bandwidth KDE baselines",
+      "Maintained robust foreground tracking under illumination changes and background motion",
+      "Achieved real-time performance of 25–30 FPS on standard video resolutions"
+    ],
+    image:"",
+    githubUrl: "https://github.com/nandithanaik0/Object-Tracking-using-Kernel-Density-Estimation-KDE-",
+    category: "ai",
+    featured: true,
+  },
+
+  //8. Real-Time Scene Classification System
+  {
+    id: "real-time-scene-classification",
+  title: "Real-Time Scene Classification System",
+  description:
+    "Low-latency scene classification system using transfer learning on CNN backbones for real-time video understanding.",
+  longDescription:
+    "Designed and implemented a real-time scene classification pipeline using transfer learning on pre-trained convolutional neural networks, including AlexNet, VGG16, and ResNet-50, trained on the MIT Places dataset for eight indoor and outdoor scene categories. Conducted systematic benchmarking across architectures to evaluate accuracy–latency tradeoffs, selecting ResNet-50 as the final backbone due to its superior balance of classification performance and inference efficiency. Integrated the trained model into a live video inference pipeline capable of performing frame-by-frame scene recognition in real time. The system demonstrates practical considerations for deploying deep learning-based scene understanding models under real-time constraints.",
+  technologies: [
+    "Python",
+    "PyTorch",
+    "TensorFlow",
+    "ResNet-50",
+    "Transfer Learning",
+    "OpenCV",
+    "MIT Places Dataset",
+    "Real-Time Video Processing"
+  ],
+  features: [
+    "Implemented transfer learning on AlexNet, VGG16, and ResNet-50 for scene classification",
+    "Benchmarked multiple CNN backbones to analyze accuracy–latency tradeoffs",
+    "Selected ResNet-50 based on optimal performance for real-time inference",
+    "Achieved approximately 85–90% classification accuracy on eight scene classes",
+    "Maintained real-time inference performance of 25–30 FPS on live video streams"
+  ],
+    image:"",
+    githubUrl: "",
+    category: "ai",
+    featured: false,
+  },
+
+   //9. Indoor Navigation System for the Visually Impaired using Instance Segmentation
+  {
+    id: "indoor-navigation-instance-segmentation",
+  title: "Indoor Navigation System for the Visually Impaired using Instance Segmentation",
+  description:
+    "Assistive indoor navigation system leveraging instance segmentation and audio feedback for real-time obstacle awareness.",
+  longDescription:
+    "Developed a human-centered indoor navigation system using instance segmentation to support visually impaired users in understanding their surroundings. Implemented a Mask R-CNN model with an Inception-ResNet-v2 backbone to detect and segment common indoor objects from live camera input. Created a custom labeled dataset using LabelImg and fine-tuned the model using the TensorFlow Object Detection API. Integrated a text-to-speech feedback module to provide real-time auditory descriptions of detected objects and their spatial context. Evaluated system performance against YOLOv3 object detection to analyze the tradeoffs between instance-level localization accuracy and inference latency for real-time assistive applications.",
+  technologies: [
+    "Python",
+    "TensorFlow",
+    "Mask R-CNN",
+    "Inception-ResNet-v2",
+    "YOLOv3",
+    "OpenCV",
+    "LabelImg",
+    "Text-to-Speech (pyttsx3)",
+    "Computer Vision"
+  ],
+  features: [
+    "Implemented instance segmentation using Mask R-CNN for indoor object understanding",
+    "Created and annotated a custom indoor dataset using LabelImg",
+    "Integrated real-time text-to-speech feedback for assistive navigation",
+    "Compared instance segmentation with YOLOv3 to evaluate accuracy–latency tradeoffs",
+    "Achieved higher localization accuracy with Mask R-CNN and faster inference with YOLOv3"
+  ],
+    image:"/images/projects/indoor_nav.png",
+    githubUrl: "https://github.com/nandithanaik0/Indoor-Navigation-system-for-visually-impaired",
+    category: "ai",
+    featured: false,
+  },
+
+   //10. Discharge Measurement of Open Water Canal using Computer Vision
+  {
+    id: "open-water-canal-discharge-measurement",
+  title: "Discharge Measurement of Open Water Canal using Computer Vision",
+  description:
+    "Real-time canal discharge monitoring system using dense optical flow and radar-based water level sensing for smart infrastructure applications.",
+  longDescription:
+    "Designed and implemented a real-time discharge measurement system for open water canals by combining computer vision and sensor-based measurements. Surface flow velocity was estimated from video streams using dense optical flow algorithms implemented with OpenCV, enabling non-contact velocity measurement under outdoor conditions. Water level measurements were obtained using an RF radar sensor and fused with vision-based velocity estimates to compute continuous discharge rates. The system was evaluated against manual flow measurements, demonstrating stable velocity estimation under varying illumination and surface turbulence. A data logging and wireless transmission pipeline was implemented to stream measurements to a remote server, enabling real-time monitoring and analysis for infrastructure and environmental sensing applications.",
+  technologies: [
+    "Python",
+    "OpenCV",
+    "Dense Optical Flow",
+    "Computer Vision",
+    "RF Radar Sensor",
+    "Sensor Fusion",
+    "Real-Time Systems",
+    "Data Logging & Telemetry"
+  ],
+  features: [
+    "Implemented dense optical flow to estimate surface water velocity from video streams",
+    "Integrated RF radar sensing for real-time water level measurement",
+    "Fused velocity and water level data to compute continuous canal discharge rates",
+    "Achieved <10% deviation in velocity estimation compared to manual flow measurements",
+    "Maintained real-time processing at approximately 20–25 FPS under outdoor conditions"
+  ],
+    image:"/images/projects/dof.png",
+    githubUrl: "https://github.com/nandithanaik0/Discharge-Measurement-using-Dense-Optical-Flow-DOF-",
+    category: "ai",
+    featured: false,
+  },
+
+  //11. Crop Disease Classification using Deep Learning
+  {
+    id: "crop-disease-classification-web-app",
+title: "Crop Disease Classification using Deep Learning",
+description:
+  "End-to-end deep learning system for crop disease detection using transfer learning, deployed as a real-time web application.",
+longDescription:
+  "Designed and implemented an end-to-end crop disease classification pipeline using deep convolutional neural networks, developed as part of an industry-sponsored project with Dassault Systèmes. Leveraged transfer learning with multiple pre-trained CNN architectures—including Xception, DenseNet, and InceptionV2—along with a custom CNN to evaluate performance trade-offs on real-world agricultural image data. Models were systematically compared using industry-standard evaluation metrics such as accuracy, precision, recall, F1-score, and confusion matrices to assess robustness and generalization. The best-performing Xception-based model was deployed as a production-ready web application using a Flask REST API, enabling real-time disease prediction from user-uploaded images. The project emphasized reproducible experimentation, model selection, and seamless ML-to-web deployment.",
+technologies: [
+  "Python",
+  "TensorFlow / Keras",
+  "Convolutional Neural Networks (CNNs)",
+  "Transfer Learning",
+  "Xception",
+  "DenseNet",
+  "InceptionV2",
+  "Flask",
+  "REST APIs",
+  "Model Evaluation Metrics"
+],
+features: [
+  "Implemented transfer learning using multiple pre-trained CNN architectures for crop disease classification",
+  "Designed and trained a custom CNN and compared performance against state-of-the-art models",
+  "Evaluated models using accuracy, precision, recall, F1-score, and confusion matrices",
+  "Deployed the best-performing Xception model as a Flask-based web application",
+  "Enabled real-time inference on user-uploaded images via a REST API"
+],
+    image:"/images/projects/plant.png",
+    demoUrl: "https://docs.google.com/presentation/d/1NJ9CYU_A3M7AUz3ZEswubjm7Kc-NWT_S/edit?slide=id.p1#slide=id.p1",
+    category: "ai",
+    featured: false,
+  }
+];
