@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://nandithanaik0.github.io/Web-Portfolio/sitemap.xml
