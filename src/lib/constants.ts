@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   name: "Nanditha Naik",
   description:
     "Master's in Electrical and Computer Engineering Student at Lloyd Institute of Engineering & Technology | Full-stack Developer | Community Builder | AI & Web Enthusiast",
-  url: "https://nandithanaik.com", 
+  url: "https://nandithanaik0.github.io/Web-Portfolio",
   ogImage: "/images/nanditha.png",
   links: {
     email: "nandithanaik8@gmail.com",
