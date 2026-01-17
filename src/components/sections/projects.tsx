@@ -26,10 +26,8 @@ export function Projects() {
 
   const categories = [
     { value: "all", label: "All Projects" },
-    { value: "mobile", label: "Mobile" },
-    { value: "web", label: "Web" },
-    { value: "blockchain", label: "Blockchain" },
     { value: "ai", label: "AI" },
+    { value: "web", label: "Web" },
   ];
 
   return (
@@ -46,10 +44,7 @@ export function Projects() {
           <h2 className=" text-4xl md:text-5xl font-display font-bold mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Showcasing innovative solutions from mobile apps to blockchain
-            implementations, each project demonstrates real-world impact.
-          </p>
+          
         </motion.div>
 
         {/* Category Filter */}

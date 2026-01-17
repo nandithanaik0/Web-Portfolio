@@ -22,7 +22,6 @@ export const generateMetadata = (): Metadata => {
       "AWS",
       "Azure",
       "Machine Learning",
-      "Blockchain",
     ],
     authors: [
       {
