@@ -1,20 +1,37 @@
-# Nanditha Naik — Portfolio Archive
+# Nanditha's Portfolio Website
 
-This repository contains the earlier, extended version of my portfolio and its full project dataset.
+A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS v4.
 
-## Current website
+Status: In Progress..
 
-Visit my current robotics research and academic portfolio:
+The portfolio is fully optimized for performance, SEO, and real-world usage.
 
-**[nandithanaik0.github.io](https://nandithanaik0.github.io)**
-
-The current site highlights my work in humanoid autonomy, semantic memory, perception, navigation, robot learning, and selected research projects.
-
-## Development
-
-```bash
+#To install dependencies
 npm install
-npm run dev
-```
 
-Built with Next.js, TypeScript, and Tailwind CSS.
+# To run dev server
+npm run dev
+
+# To build for production
+npm run build
+
+
+Visit:
+http://localhost:3000
+
+
+Theme: Dark-first and light mode support
+
+Inspired by modern startup portfolios + developer SaaS UI
+
+ Project Structure
+src/
+├── app/             # Next.js app directory
+├── components/      # React components
+│   ├── ui/          # Reusable UI components
+│   ├── layout/      # Navbar, Footer, Layout
+│   ├── sections/    # Main page sections
+│   └── 3d/          # Three.js visual components
+├── data/            # Static content (projects, skills, experience)
+├── lib/             # Utilities and constants
+└── types/           # TypeScript interfaces
